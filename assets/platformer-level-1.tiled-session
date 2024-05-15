@@ -1,0 +1,74 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "kenney_pixel-platformer/Tiled/platformer-level-1.tmx",
+    "expandedProjectPaths": [
+        "kenney_pixel-platformer",
+        ".",
+        "kenney_pixel-platformer/Tiled"
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "#characters_tilemap": {
+            "scaleInEditor": 3.8
+        },
+        "kenney_pixel-platformer/Tiled/platformer-level-1.tmx": {
+            "scale": 0.41,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": -867.0731707317073,
+                "y": -201.21951219512198
+            }
+        },
+        "kenney_pixel-platformer/Tiled/platformer-level-1.tmx#backgrounds_tilemap": {
+            "scaleInDock": 1
+        },
+        "kenney_pixel-platformer/Tiled/platformer-level-1.tmx#base_tilemap": {
+            "scaleInDock": 2.1762
+        },
+        "kenney_pixel-platformer/Tiled/platformer-level-1.tmx#farm_tilemap": {
+            "scaleInDock": 1.0884
+        },
+        "kenney_pixel-platformer/Tiled/tilemap-example-a.tmx": {
+            "scale": 1.3153846153846154,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 234.1520467836257,
+                "y": 135.7017543859649
+            }
+        },
+        "kenney_pixel-platformer/Tiled/tileset-characters.tsx": {
+            "scaleInDock": 1
+        },
+        "kenney_pixel-platformer/Tiled/tileset-tiles.tsx": {
+            "scaleInDock": 1
+        }
+    },
+    "frame.defaultDuration": 500,
+    "last.exportedFilePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game3/assets",
+    "last.imagePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game3/assets/kenney_pixel-platformer/Tilemap",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 18,
+    "map.tileWidth": 18,
+    "map.width": 120,
+    "openFiles": [
+        "kenney_pixel-platformer/Tiled/platformer-level-1.tmx"
+    ],
+    "project": "platformer-level-1.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "kenney_pixel-platformer/Tiled/platformer-level-1.tmx",
+        "kenney_pixel-platformer/Tiled/tilemap-example-a.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 18,
+        "width": 18
+    }
+}
