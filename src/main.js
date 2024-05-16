@@ -31,7 +31,6 @@ let config = {
     },
     width: 1440,
     height: 900,
-    backgroundColor: "#8cc8fa",
     scene: [Level]
 }
 

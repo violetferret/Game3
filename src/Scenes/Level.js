@@ -9,7 +9,7 @@ class Level extends Phaser.Scene {
         // Load tilemap information
         this.load.image("base_tilemap_tiles", "assets/kenney_pixel-platformer/Tilemap/tilemap_packed.png");                         
         this.load.image("farm_tilemap_tiles", "assets/kenney_pixel-platformer-farm-expansion/Tilemap/tilemap_packed.png");
-        this.load.image("bg_tilemap_tiles", "assets/kenney_pixel-platformer/Tilemap/tilemap-backgrounds_packed.png");
+        this.load.image("backgrounds_tilemap_tiles", "assets/kenney_pixel-platformer/Tilemap/tilemap-backgrounds_packed.png");
         this.load.tilemapTiledJSON("platformer-level-1", "assets/platformer-level-1.tmj");   // Tilemap in JSON
     }
 
@@ -19,12 +19,12 @@ class Level extends Phaser.Scene {
 
     create() {
         // Create new tilemap game object
-        this.map = this.add.tilemap("platformer-level-1", 18, 18, 245, 25);
+        this.map = this.add.tilemap("platformer-level-1", 18, 18, 245, 45);
 
         // Load tileset
         this.base_tileset = this.map.addTilesetImage("base_tilemap", "base_tilemap_tiles");
         this.farm_tileset = this.map.addTilesetImage("farm_tilemap", "farm_tilemap_tiles");
-        this.bg_tileset =  this.map.addTilesetImage("bg_tilemap", "bg_tilemap_tiles");
+        this.backgrounds_tileset =  this.map.addTilesetImage("backgrounds_tilemap", "backgrounds_tilemap_tiles");
 
         // Layers
         this.backgroundLayer =  this.map.createLayer("Background", this.bg_tileset, 0, 0);
