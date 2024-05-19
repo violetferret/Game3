@@ -61,9 +61,9 @@ class Level extends Phaser.Scene {
         // Phaser docs:
         // https://newdocs.phaser.io/docs/3.80.0/focus/Phaser.Tilemaps.Tilemap-createFromObjects
 
-        this.coins = this.map.createFromObjects("Objects", {
+        this.coins = this.map.createFromObjects("Coins", {
             name: "coin",
-            key: "tilemap_sheet",
+            key: "base_tilemap_sheet",
             frame: 151
         });
 

@@ -31,7 +31,7 @@ let config = {
     },
     width: 1440,
     height: 900,
-    scene: [Level]
+    scene: [Load, Level]
 }
 
 var cursors;

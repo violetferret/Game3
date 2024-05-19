@@ -1,7 +1,7 @@
 {
 	"textures": [
 		{
-			"image": "kenny-particles-0.png",
+			"image": "assets/kenney_particle-pack/kenny-particles-0.png",
 			"format": "RGBA8888",
 			"size": {
 				"w": 2048,
@@ -348,7 +348,7 @@
 			]
 		},
 		{
-			"image": "kenny-particles-1.png",
+			"image": "assets/kenney_particle-pack/kenny-particles-1.png",
 			"format": "RGBA8888",
 			"size": {
 				"w": 2048,
@@ -695,7 +695,7 @@
 			]
 		},
 		{
-			"image": "kenny-particles-2.png",
+			"image": "assets/kenney_particle-pack/kenny-particles-2.png",
 			"format": "RGBA8888",
 			"size": {
 				"w": 2048,
@@ -1042,7 +1042,7 @@
 			]
 		},
 		{
-			"image": "kenny-particles-3.png",
+			"image": "assets/kenney_particle-pack/kenny-particles-3.png",
 			"format": "RGBA8888",
 			"size": {
 				"w": 2048,
@@ -1389,7 +1389,7 @@
 			]
 		},
 		{
-			"image": "kenny-particles-4.png",
+			"image": "assets/kenney_particle-pack/kenny-particles-4.png",
 			"format": "RGBA8888",
 			"size": {
 				"w": 2048,
