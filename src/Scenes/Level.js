@@ -1,20 +1,21 @@
 class Level extends Phaser.Scene {
     preload() {
         // Load animation plugin
-        this.load.scenePlugin('AnimatedTiles', './lib/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');
-
-        // Load character atlas
-        this.load.atlas("platformer_characters", "./assets/kenney_pixel-platformer/Tilemap/tilemap-characters_packed.png", "assets/kenney_pixel-platformer/Tilemap/tilemap-characters-packed.json");
-
-        // Load tilemap information
-        this.load.image("base_tilemap_tiles", "./assets/kenney_pixel-platformer/Tilemap/tilemap_packed.png");                         
-        this.load.image("farm_tilemap_tiles", "./assets/kenney_pixel-platformer-farm-expansion/Tilemap/tilemap_packed.png");
-        this.load.image("backgrounds_tilemap_tiles", "./assets/kenney_pixel-platformer/Tilemap/tilemap-backgrounds_packed.png");
-        this.load.tilemapTiledJSON("platformer-level-1", "./assets/platformer-level-1.tmj");   // Tilemap in JSON
+        this.load.scenePlugin('AnimatedTiles', './lib/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');  
     }
 
     constructor() {
-        super("level");
+        super("levelScene");
+    }
+
+    init() {
+        // variables and settings
+        this.ACCELERATION = 400;
+        this.DRAG = 500;    // DRAG < ACCELERATION = icy slide
+        this.physics.world.gravity.y = 1500;
+        this.JUMP_VELOCITY = -600;
+        this.PARTICLE_VELOCITY = 50;
+        this.SCALE = 2.0;
     }
 
     create() {
@@ -33,27 +34,60 @@ class Level extends Phaser.Scene {
         this.plantsLayer = this.map.createLayer("Plants", this.farm_tileset, 0, 0);
         this.waterLayer = this.map.createLayer("Water", this.base_tileset, 0, 0);
         this.buildingsLayer = this.map.createLayer("Buildings", this.farm_tileset, 0, 0);
-        this.collectiblesLayer = this.map.createLayer("Collectibles", this.base_tileset, 0, 0);
-
-        // this.backgroundLayer.setScale(2);
-        // this.groundLayer.setScale(2);
-        // this.plantsLayer.setScale(2);
-        // this.waterLayer.setScale(2);
-        // this.buildingsLayer.setScale(2);
-        // this.collectiblesLayer.setScale(2);
         
         // Make it collidable
         this.groundLayer.setCollisionByProperty({
             collides: true
         });
 
-        // Make it collidable
         this.plantsLayer.setCollisionByProperty({
             collides: true
         });
 
+        this.waterLayer.setCollisionByProperty({
+            collides: true
+        });
+
+        this.buildingsLayer.setCollisionByProperty({
+            collides: true
+        });
+
+        // Animate
         this.animatedTiles.init(this.map);
 
+        // Find coins in the "Objects" layer in Phaser
+        // Look for them by finding objects with the name "coin"
+        // Assign the coin texture from the tilemap_sheet sprite sheet
+        // Phaser docs:
+        // https://newdocs.phaser.io/docs/3.80.0/focus/Phaser.Tilemaps.Tilemap-createFromObjects
+
+        this.coins = this.map.createFromObjects("Objects", {
+            name: "coin",
+            key: "tilemap_sheet",
+            frame: 151
+        });
+
+        // Since createFromObjects returns an array of regular Sprites, we need to convert 
+        // them into Arcade Physics sprites (STATIC_BODY, so they don't move) 
+        this.physics.world.enable(this.coins, Phaser.Physics.Arcade.STATIC_BODY);
+
+        // Create a Phaser group out of the array this.coins
+        // This will be used for collision detection below.
+        this.coinGroup = this.add.group(this.coins);
+
+        this.animatedTiles.init(this.map);
+
+        // set up player avatar
+        my.sprite.player = this.physics.add.sprite(30, 345, "platformer_characters", "tile_0000.png");
+        my.sprite.player.setCollideWorldBounds(true);
+
+        // Enable collision handling
+        this.physics.add.collider(my.sprite.player, this.groundLayer);
+
+        // Handle collision detection with coins
+        this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {
+            obj2.destroy(); // remove coin on overlap
+        });
     }
 
     update() {
