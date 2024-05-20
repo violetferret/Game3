@@ -198,18 +198,13 @@ class Level extends Phaser.Scene {
         // Handle water collision
         if (my.sprite.player.y >= 780) {
 
-            let timer1 = this.time.delayedCall(0, function () {
-                this.sound.play("drown", {
-                    volume: 1
-                });
-            }, [], this);
+            this.sound.play("drown", {
+                volume: 1
+            });
 
-            let timer2 = this.time.delayedCall(500, function () {
-                my.sprite.player.setPosition(50, 500);
-                my.sprite.player.flipX = true;
-            }, [], this);
-
-
+            //let timer2 = this.time.delayedCall(500, function () {
+                this.scene.restart();
+            //}, [], this);
 
         }
     }
