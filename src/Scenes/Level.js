@@ -10,7 +10,7 @@ class Level extends Phaser.Scene {
 
     init() {
         // variables and settings
-        this.ACCELERATION = 300;
+        this.ACCELERATION = 250;
         this.DRAG = 4000;    // DRAG < ACCELERATION = icy slide
         this.physics.world.gravity.y = 1300;
         this.JUMP_VELOCITY = -600;
@@ -34,9 +34,9 @@ class Level extends Phaser.Scene {
         this.backgrounds_tileset = this.map.addTilesetImage("backgrounds_tilemap", "backgrounds_tilemap_tiles");
 
         // Layers
-        this.backgroundLayer = this.map.createLayer("Background", this.backgrounds_tileset, 0, 0);
-        this.groundLayer = this.map.createLayer("Ground-Platforms", this.farm_tileset, 0, 0);
-        this.plantsLayer = this.map.createLayer("Plants", this.farm_tileset, 0, 0);
+        this.backgroundLayer = this.map.createLayer("Background", this.backgrounds_tileset, 0, 0).setScrollFactor(0.25);
+        this.groundLayer = this.map.createLayer("Ground-Platforms", [this.farm_tileset, this.base_tileset], 0, 0);
+        this.plantsLayer = this.map.createLayer("Plants", [this.farm_tileset, this.base_tileset], 0, 0);
         this.waterLayer = this.map.createLayer("Water", this.base_tileset, 0, 0);
         this.buildingsLayer = this.map.createLayer("Buildings", this.farm_tileset, 0, 0);
 
@@ -99,6 +99,7 @@ class Level extends Phaser.Scene {
         // Handle collision detection with coins
         this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {
             obj2.destroy(); // remove coin on overlap
+            this.sound.play("coins");
         });
 
         // set up Phaser-provided cursor key input
@@ -145,12 +146,15 @@ class Level extends Phaser.Scene {
 
             my.vfx.walking.setParticleSpeed(this.PARTICLE_VELOCITY, 0);
 
+
+
             // Only play smoke effect if touching the ground
 
             if (my.sprite.player.body.blocked.down) {
-
                 my.vfx.walking.start();
-
+                // let timer = this.time.delayedCall(5000, function () {
+                //     this.sound.play("grass_1");
+                // }, [], this);
 
             }
 
@@ -169,6 +173,9 @@ class Level extends Phaser.Scene {
             if (my.sprite.player.body.blocked.down) {
 
                 my.vfx.walking.start();
+                // let timer = this.time.delayedCall(1000, function () {
+                //     this.sound.play("grass_1");
+                // }, [], this);
 
             }
 
@@ -195,17 +202,18 @@ class Level extends Phaser.Scene {
 
         //console.log(my.sprite.player.y)
 
+        if (my.sprite.player.x >= 4300) {
+            // end game
+
+        }
         // Handle water collision
         if (my.sprite.player.y >= 780) {
-
             this.sound.play("drown", {
                 volume: 1
             });
-
             //let timer2 = this.time.delayedCall(500, function () {
-                this.scene.restart();
+            this.scene.restart();
             //}, [], this);
-
         }
     }
 }

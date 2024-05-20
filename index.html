@@ -1,11 +1,19 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<link rel="preload" as="font" href="assets/kenney_kenney-fonts/Fonts/Kenney Mini.ttf" type="font/ttf" crossorigin="anonymous"/>
+<style>
+    @font-face {
+        font-family: kenney-mini;
+        src: url('assets/kenney_kenney-fonts/Fonts/Kenney Mini.ttf');
+    }
+ </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autumn Cove</title>
     <script src="./lib/phaser.js"></script>
+    <script src="./src/Scenes/HUD.js"></script>
     <script src="./src/Scenes/Level.js"></script>
     <script src="./src/Scenes/Load.js"></script>
     <script src="./src/main.js"></script>
