@@ -5,7 +5,7 @@ class Load extends Phaser.Scene {
 
     preload() {
         // Load character atlas
-        this.load.atlas("platformer_characters", "./assets/kenney_pixel-platformer/Tilemap/tilemap-characters_packed.png", "assets/kenney_pixel-platformer/Tilemap/tilemap-characters-packed.json");
+        this.load.atlas("platformer_characters", "./assets/kenney_pixel-platformer/Tilemap/tilemap-characters_packed.png", "./assets/kenney_pixel-platformer/Tilemap/tilemap-characters-packed.json");
 
         // Load tilemap information
         this.load.image("base_tilemap_tiles", "./assets/kenney_pixel-platformer/Tilemap/tilemap_packed.png");                         
@@ -34,6 +34,14 @@ class Load extends Phaser.Scene {
         // Load particle multiatlas
         this.load.multiatlas("kenny-particles", "./assets/kenney_particle-pack/kenny-particles.json");
 
+        // Load pixel particles
+        // this.load.multiatlas("kenney-pixel-particles", "./assets/kenney_platformer-art-pixel-redux/Tiles/kenney-pixel-particles.json");
+    
+        // Audio
+        this.load.audio("grass_1", "assets/kenney_impact-sounds/Audio/footstep_grass_003.ogg");
+        this.load.audio("grass_2", "assets/kenney_impact-sounds/Audio/footstep_grass_004.ogg");
+        this.load.audio("coins", "assets/kenney_rpg-audio/Audio/handleCoins2.ogg");
+        this.load.audio("drown", "assets/kenney_music-jingles/Audio/Sax jingles/jingles_SAX01.ogg");
     }
 
     create() {
@@ -41,8 +49,8 @@ class Load extends Phaser.Scene {
             key: 'walk',
             frames: this.anims.generateFrameNames('platformer_characters', {
                 prefix: "tile_",
-                start: 0,
-                end: 1,
+                start: 6,
+                end: 7,
                 suffix: ".png",
                 zeroPad: 4
             }),
@@ -54,7 +62,7 @@ class Load extends Phaser.Scene {
             key: 'idle',
             defaultTextureKey: "platformer_characters",
             frames: [
-                { frame: "tile_0000.png" }
+                { frame: "tile_0006.png" }
             ],
             repeat: -1
         });
@@ -63,7 +71,7 @@ class Load extends Phaser.Scene {
             key: 'jump',
             defaultTextureKey: "platformer_characters",
             frames: [
-                { frame: "tile_0001.png" }
+                { frame: "tile_0007.png" }
             ],
         });
 

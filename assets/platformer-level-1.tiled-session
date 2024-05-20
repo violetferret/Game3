@@ -5,9 +5,9 @@
     },
     "activeFile": "",
     "expandedProjectPaths": [
-        "kenney_pixel-platformer/Tiled",
+        "kenney_pixel-platformer",
         ".",
-        "kenney_pixel-platformer"
+        "kenney_pixel-platformer/Tiled"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -80,11 +80,11 @@
             "scaleInDock": 1
         },
         "platformer-level-1.tmx": {
-            "scale": 0.2895,
-            "selectedLayer": 0,
+            "scale": 0.5276,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 1944.7322970639036,
-                "y": 398.9637305699482
+                "x": 3405.0416982562547,
+                "y": 254.92797573919643
             }
         },
         "platformer-level-1.tmx#backgrounds_tilemap": {
@@ -110,8 +110,8 @@
     "project": "platformer-level-1.tiled-project",
     "property.type": "bool",
     "recentFiles": [
-        "platformer-level-1.tmj",
         "platformer-level-1.tmx",
+        "platformer-level-1.tmj",
         "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/S7/assets/platformer-level-1.tmx",
         "kenney_pixel-platformer/Tiled/platformer-level-1.tmx",
         "kenney_pixel-platformer/Tiled/tilemap-example-a.tmx"
