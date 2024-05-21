@@ -23,6 +23,9 @@ class Level extends Phaser.Scene {
     }
 
     create() {
+        // Display coins
+        this.hud = new HUD;
+
         // Create new tilemap game object
         // this.map = this.add.tilemap("platformer-level-1", 18, 18, 245, 45);
         this.map = this.make.tilemap({ key: "platformer-level-1" });
@@ -100,6 +103,7 @@ class Level extends Phaser.Scene {
         this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {
             obj2.destroy(); // remove coin on overlap
             this.sound.play("coins");
+            this.coins++;
         });
 
         // set up Phaser-provided cursor key input
@@ -134,7 +138,7 @@ class Level extends Phaser.Scene {
         this.cameras.main.setDeadzone(50, 50);
         this.cameras.main.setZoom(this.SCALE);
 
-
+        
     }
 
     update() {
@@ -215,5 +219,7 @@ class Level extends Phaser.Scene {
             this.scene.restart();
             //}, [], this);
         }
+
+        this.hud.update(this.coins);
     }
 }
