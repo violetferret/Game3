@@ -1,0 +1,2 @@
+ASK ABOUT:
+- changing particles to own multiatlas

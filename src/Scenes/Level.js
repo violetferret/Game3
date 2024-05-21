@@ -18,13 +18,24 @@ class Level extends Phaser.Scene {
         this.SCALE = 2.0;
 
         // extra gameplay stuff
-        this.coins = 0;
+        this.coins_amount = 0;
+
+        this.is_walking_playing = false;
 
     }
 
     create() {
-        // Display coins
-        this.hud = new HUD;
+        // Display coins ????
+        this.scene.launch("hudScene");
+
+        // Create sound effect variables
+        this.grass_1 = this.sound.add("grass_1");
+        this.grass_1.loop = true;
+        this.grass_1.volume = 0.25;
+
+        this.grass_2 = this.sound.add("grass_2");
+        this.grass_2.loop = true;
+        this.grass_2.volume = 0.25;
 
         // Create new tilemap game object
         // this.map = this.add.tilemap("platformer-level-1", 18, 18, 245, 45);
@@ -103,7 +114,7 @@ class Level extends Phaser.Scene {
         this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {
             obj2.destroy(); // remove coin on overlap
             this.sound.play("coins");
-            this.coins++;
+            this.coins_amount++;
         });
 
         // set up Phaser-provided cursor key input
@@ -137,7 +148,6 @@ class Level extends Phaser.Scene {
         this.cameras.main.startFollow(my.sprite.player, true, 0.25, 0.25); // (target, [,roundPixels][,lerpX][,lerpY])
         this.cameras.main.setDeadzone(50, 50);
         this.cameras.main.setZoom(this.SCALE);
-
         
     }
 
@@ -150,16 +160,19 @@ class Level extends Phaser.Scene {
 
             my.vfx.walking.setParticleSpeed(this.PARTICLE_VELOCITY, 0);
 
-
-
             // Only play smoke effect if touching the ground
 
             if (my.sprite.player.body.blocked.down) {
                 my.vfx.walking.start();
+                // this.sound.play("grass_1");
                 // let timer = this.time.delayedCall(5000, function () {
                 //     this.sound.play("grass_1");
                 // }, [], this);
+            }
 
+            if (!this.is_walking_playing) {
+                this.grass_1.play();
+                this.is_walking_playing = true;
             }
 
         } else if (cursors.right.isDown) {
@@ -177,11 +190,17 @@ class Level extends Phaser.Scene {
             if (my.sprite.player.body.blocked.down) {
 
                 my.vfx.walking.start();
+
                 // let timer = this.time.delayedCall(1000, function () {
                 //     this.sound.play("grass_1");
                 // }, [], this);
-
             }
+            if (!this.is_walking_playing) {
+                this.grass_2.play();
+                this.is_walking_playing = true;
+            }
+
+
 
         } else {
             // Set acceleration to 0 and have DRAG take over
@@ -189,6 +208,9 @@ class Level extends Phaser.Scene {
             my.sprite.player.setDragX(this.DRAG);
             my.sprite.player.anims.play('idle');
             my.vfx.walking.stop();
+            this.grass_1.stop();
+            this.grass_2.stop();
+            this.is_walking_playing = false;
         }
 
         // player jump
@@ -219,7 +241,5 @@ class Level extends Phaser.Scene {
             this.scene.restart();
             //}, [], this);
         }
-
-        this.hud.update(this.coins);
     }
 }
