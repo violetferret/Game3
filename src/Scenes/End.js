@@ -34,16 +34,15 @@ class End extends Phaser.Scene {
         this.levelScene = this.scene.get("levelScene");
 
         this.text = this.add.text(250, 60, 'Congratulations! Your score is:', this.textConfig);
-        this.score = this.add.text(650, 100, this.levelScene.coins_amount, this.textConfig);
+        this.score = this.add.text(640, 130, this.levelScene.coins_amount, this.textConfig);
         this.score.setFontSize(150);
-        this.score.setColor("white");
 
         this.text.visible = true;
         this.score.visible = true;
 
         this.sound.play("congrats");
 
-        this.playAgain = this.add.text(580, 255, 'Play again?', this.textConfig,).setInteractive().on('pointerdown', () => this.scene.start("levelScene") );
+        this.playAgain = this.add.text(580, 325, 'Play again?', this.textConfig,).setInteractive().on('pointerdown', () => this.scene.start("levelScene") );
         this.playAgain.setFontSize(50);
         this.playAgain.setColor("white");
         this.playAgain.visible = true;
