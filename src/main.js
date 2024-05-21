@@ -39,7 +39,7 @@ let config = {
     },
     width: 1440,
     height: 900,
-    scene: [Load, Level, HUD]
+    scene: [Load, Level, HUD, End]
 }
 
 var cursors;

@@ -3,11 +3,11 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "platformer-end.tmx",
     "expandedProjectPaths": [
-        "kenney_pixel-platformer",
+        "kenney_pixel-platformer/Tiled",
         ".",
-        "kenney_pixel-platformer/Tiled"
+        "kenney_pixel-platformer"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -62,6 +62,20 @@
         "kenney_pixel-platformer/Tiled/tileset-tiles.tsx": {
             "scaleInDock": 1
         },
+        "platformer-end.tmx": {
+            "scale": 0.7281,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 238.29144348303805,
+                "y": 26.782035434693057
+            }
+        },
+        "platformer-end.tmx#tilemap-backgrounds_packed": {
+            "scaleInDock": 1
+        },
+        "platformer-end.tmx#tilemap_packed": {
+            "scaleInDock": 1
+        },
         "platformer-level-1.tmj": {
             "scale": 0.5028,
             "selectedLayer": 5,
@@ -97,19 +111,21 @@
             "scaleInDock": 1
         }
     },
-    "frame.defaultDuration": 500,
+    "frame.defaultDuration": 1000,
     "last.exportedFilePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game3/assets",
     "last.imagePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game3/assets/kenney_pixel-platformer/Tilemap",
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 18,
     "map.tileWidth": 18,
-    "map.width": 120,
+    "map.width": 40,
     "openFiles": [
+        "platformer-end.tmx"
     ],
     "project": "platformer-level-1.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "platformer-end.tmx",
         "platformer-level-1.tmx",
         "platformer-level-1.tmj",
         "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/S7/assets/platformer-level-1.tmx",

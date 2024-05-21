@@ -25,6 +25,11 @@ class Level extends Phaser.Scene {
     }
 
     create() {
+        // game.sound.stopAll();
+        if(this.grass_1) {
+            this.grass_1.stop();
+        }
+
         // Display coins ????
         this.scene.launch("hudScene");
 
@@ -196,7 +201,7 @@ class Level extends Phaser.Scene {
                 // }, [], this);
             }
             if (!this.is_walking_playing) {
-                this.grass_2.play();
+                this.grass_1.play();
                 this.is_walking_playing = true;
             }
 
@@ -209,7 +214,7 @@ class Level extends Phaser.Scene {
             my.sprite.player.anims.play('idle');
             my.vfx.walking.stop();
             this.grass_1.stop();
-            this.grass_2.stop();
+            //this.grass_2.stop();
             this.is_walking_playing = false;
         }
 
@@ -230,12 +235,13 @@ class Level extends Phaser.Scene {
 
         if (my.sprite.player.x >= 4300) {
             // end game
+            this.scene.start("endScene");
 
         }
         // Handle water collision
         if (my.sprite.player.y >= 780) {
             this.sound.play("drown", {
-                volume: 1
+                volume: 0.5
             });
             //let timer2 = this.time.delayedCall(500, function () {
             this.scene.restart();

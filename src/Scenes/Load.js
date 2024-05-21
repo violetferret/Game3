@@ -42,6 +42,7 @@ class Load extends Phaser.Scene {
         this.load.audio("grass_2", "assets/kenney_impact-sounds/Audio/footstep_grass_004.ogg");
         this.load.audio("coins", "assets/kenney_rpg-audio/Audio/handleCoins2.ogg");
         this.load.audio("drown", "assets/kenney_music-jingles/Audio/Sax jingles/jingles_SAX01.ogg");
+        this.load.audio("congrats", "assets/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI10.ogg");
     }
 
     create() {
@@ -77,7 +78,7 @@ class Load extends Phaser.Scene {
 
         
          // ...and pass to the next Scene
-         this.scene.start("levelScene");
+         this.scene.start("endScene");
     }
 
 }

@@ -3,7 +3,7 @@ class HUD extends Phaser.Scene {
         this.textConfig = {
             fontFamily: 'kenney-mini',
             fontSize: 50,
-            color: "white",
+            color: "orange",
         }  
     }
 
@@ -11,8 +11,8 @@ class HUD extends Phaser.Scene {
         super("hudScene");
     }
 
-    create(Level) {
-        this.text = this.add.text(0, 0, 'Score: 0', this.textConfig);
+    create() {
+        this.text = this.add.text(20, 0, 'Score: 0', this.textConfig);
         this.levelScene = this.scene.get("levelScene");
         this.text.visible = true;
     }
